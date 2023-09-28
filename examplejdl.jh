@@ -1,0 +1,61 @@
+
+
+entity Classes {
+	/**
+	* The firstname attribute.
+	*/
+	name String
+	
+}
+
+entity Actions {
+	/**
+	* The firstname attribute.
+	*/
+	name String
+	
+}
+
+
+entity MainEntity {
+	title String
+    url String 
+	
+}
+
+entity Activities {
+	name String
+	
+}
+
+entity Splisers {
+	name String
+	
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	MainEntity to Splisers{endpoint}  
+    MainEntity to Activities{endpoint}  
+
+}
+
+relationship OneToOne {
+	MainEntity to Classes{endpoint}  
+    MainEntity to Actions{endpoint}  
+}
+
+
+// Set pagination options
+paginate * with infinite-scroll
+
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
